@@ -2,7 +2,7 @@
 title: "This is the pages/project/page01.qmd title"
 ---
 
-This is a Quarto website.
+This is a Quarto website. This is a file for a decidated page for your website. This file is only needed if you do not build your website as a single page in pages/index.qmd
 
 ## This is a header
 
@@ -26,7 +26,7 @@ along with full URL links <https://quarto.org/docs/websites> or  labelled [Clare
 library(here)
 library(ggplot2) 
 library(dplyr) 
-source(here::here("pages", "project", "src", "functions", "save_plot_as_png.R"))
+source(here("pages", "project", "src", "functions", "save_plot_as_png.R"))
 ```
 
 
@@ -36,10 +36,14 @@ source(here::here("pages", "project", "src", "functions", "save_plot_as_png.R"))
 #| include: false
 
 # call script to read clean/wrangle and write data for later use 
-source(here::here("pages", "project", "src", "data", "data_cleaning.R"))
+# if cleaning is not required remove this source() call and ensure
+# that you adjust your {here} path to read in the raw data from 
+# pages/project/data/ (not the cleaned sub-directory)
 
-# read data
-mtcars <- readRDS(here::here("pages", "project", "data", "mtcars.Rds"))
+source(here("pages", "project", "src", "data", "data_cleaning.R"))
+
+# read cleaned data (produced from the above cleaning script)
+mtcars <- readRDS(here("pages", "project", "data", "cleaned", "mtcars_cleaned.Rds"))
 ```
 
 
@@ -58,7 +62,10 @@ p <-
   mtcars |>
   # get only 6 cylinder cars
   filter(cyl %in% 4:6) |>
-  ggplot(mapping = aes(x = wt, y = mpg)) +
+  ggplot(mapping = aes(
+    x = wt, 
+    y = mpg
+    )) +
   geom_point()
 ```
 
@@ -79,5 +86,3 @@ save_plot_as_png(
 ## Plot Header
 
 ![](/pages/project/figs/mpg-by-wt-for-cyl.png){width=80% fig-alt="This is alt-text for describing the plot for screen readers ..."}
-
-

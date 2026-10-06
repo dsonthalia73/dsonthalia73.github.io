@@ -2,7 +2,7 @@
 title: "This is the pages/project/index page title"
 ---
 
-This is a Quarto website.
+This is a Quarto website. This pages/project/index.qmd file could very well contain all of your plots and your entire data story if your goal is present such a story linearly. If so, you can remove teh content needed for the pages/page01.qmd file and adjust your _quarto.yml file to remove the Drop down tab from the navbar (left). If your story is linear, just be careful to arrange your headers, plots, and written content in the order they should appear. 
 
 ## This is a header
 
@@ -19,11 +19,11 @@ And more content ...
 #| warning: false
 #| include: false
 
-# libraries
+# libraries and functions
 library(here)
 library(ggplot2) 
 library(dplyr) 
-source(here::here("pages", "project", "src", "functions", "save_plot_as_png.R"))
+source(here("pages", "project", "src", "functions", "save_plot_as_png.R"))
 ```
 
 
@@ -32,12 +32,25 @@ source(here::here("pages", "project", "src", "functions", "save_plot_as_png.R"))
 #| warning: false
 #| include: false
 
-# call script to read clean/wrangle and write data for later use 
-source(here::here("pages", "project", "src", "data", "data_cleaning.R"))
+# Call script to read/clean/wrangle and write data for later use 
+# if cleaning is not required remove this source() call and ensure
+# that you adjust your {here} path to read in the raw data from 
+# pages/project/data/ (not the cleaned sub-directory)
+#
+# If you are using an API call for accessing your data, your 
+# data_cleaning.R script would involve accessing the data through
+# the api and then saving it locally for reproducibility (see project
+# handout). All data are required to be saved as .Rds files for 
+# preserve space and to maintain data types (which is not true for 
+# .csv files).
 
-# read data
-mtcars <- readRDS(here::here("pages", "project", "data", "mtcars.Rds"))
+source(here("pages", "project", "src", "data", "data_cleaning.R"))
+
+# read data/cleaned data (produced from the above cleaning script)
+mtcars <- readRDS(here("pages", "project", "data", "cleaned", "mtcars_cleaned.Rds"))
 ```
+
+
 
 ```{r, plot-mpg-by-hp}
 #| echo: false
@@ -52,9 +65,13 @@ mtcars <- readRDS(here::here("pages", "project", "data", "mtcars.Rds"))
 
 p <- 
   mtcars |>
-  ggplot(mapping = aes(x = hp, y = mpg)) +
+  ggplot(mapping = aes(
+     x = hp, 
+     y = mpg
+     )) +
   geom_point()
 ```
+
 
 ```{r, saveplot-mpg}
 #| message: false
@@ -88,7 +105,10 @@ p <-
   mtcars |>
   # get only 6 cylinder cars
   filter(cyl %in% 4:6) |>
-  ggplot(mapping = aes(x = wt, y = mpg)) +
+  ggplot(mapping = aes(
+    x = wt, 
+    y = mpg
+    )) +
   geom_point()
 ```
 
