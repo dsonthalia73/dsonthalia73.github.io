@@ -49,6 +49,29 @@ scorecard_cleaned <-
   mutate(policy_all_years = sum(!is.na(test_policy)) == n_years_pulled) |>
   ungroup()
 
+scorecard_cleaned <- scorecard_cleaned |>
+  group_by(unitid) |>
+  mutate(
+    policy_path = if_else(
+      policy_all_years,
+      paste(test_policy[order(year)], collapse = " → "),
+      NA_character_
+    ),
+    p18 = first(test_policy[year == 2018]),
+    p21 = first(test_policy[year == 2021]),
+    p24 = first(test_policy[year == 2024]),
+    policy_group = case_when(
+      !policy_all_years                                         ~ NA_character_,
+      p18 == "Required" & p21 == "Required" & p24 == "Required" ~ "Always required",
+      p18 == "Required" & p24 == "Required"                     ~ "Reinstated",
+      p18 == "Required"                                         ~ "Dropped requirement",
+      p24 != "Required"                                         ~ "Test-free by 2018",
+      TRUE                                                      ~ "Adopted requirement"
+    )
+  ) |>
+  select(-p18, -p21, -p24) |>
+  ungroup()
+
 ################################################################################
 # save cleaned data as .Rds file with {here} for path management
 

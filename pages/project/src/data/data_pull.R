@@ -47,14 +47,14 @@ vars <- c(
   "admcon7", "adm_rate", "sat_avg",
   "satvr25", "satvr75", "satmt25", "satmt75", "actcm25", "actcm75",
   # who enrolls
-  "ugds", "pctpell",
+  "ugds", "pctpell", "ret_ft4",
   "ugds_white", "ugds_black", "ugds_hisp", "ugds_asian"
 )
 
 pull_year <- function(yr) {
   message("Pulling ", yr, " ...")
   out <- sc_init() |>
-    sc_filter(preddeg == 3, control == c(1, 2)) |>  # bachelor's; public + private nonprofit
+    sc_filter(preddeg == 3, main == 1, control == c(1, 2)) |>  # bachelor's; public + private nonprofit
     sc_select_(vars) |>
     sc_year(yr) |>
     sc_get()
