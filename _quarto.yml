@@ -11,6 +11,8 @@ project:
     - "!posts/"    # don't render blog posts
     #- "!pages/"   # to NOT render pages in this dir
     #- "**/*.qmd"  # to render all pages
+  resources:
+    - files/resume.pdf  # make sure the resume ships with the site
   
   preview: 
     port: 1909
@@ -25,7 +27,7 @@ website:
   navbar:
     left: # left side of navbar
       - href: index.qmd               # index/home page
-        text: "My Name or Site Title" # home page title (instead of title:)
+        text: "Dhriti Sonthalia"       # home page title (instead of title:)
       
       - href: now.qmd               # my now page
         text: Now                   # now page title
@@ -51,13 +53,11 @@ website:
 
     right: # right side of navbar 
       - icon: github
-        href: https://mygithub.com/
+        href: https://github.com/dsonthalia73
       - icon: linkedin
-        href: https://www.linkedin.com/school/claremont-mckenna-college/posts/?feedView=all
-      - icon: twitter-x
-        href: https://x.com/CMCnews
-      - icon: bluesky
-        href: https://bsky.app/profile/cmc.edu
+        href: https://www.linkedin.com/in/dhritisonthalia/
+      - icon: envelope
+        href: mailto:dsonthalia73@cmc.edu
 #      - icon: rss
 #        href: blog.xml
         

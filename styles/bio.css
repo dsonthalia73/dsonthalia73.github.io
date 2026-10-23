@@ -1,0 +1,283 @@
+/* Bio page styles: scoped to .bio so the rest of the site keeps its theme */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+:root {
+  --ink: #18203a;        /* deep navy ink: headings, name */
+  --body: #2c3348;       /* body text */
+  --muted: #586074;      /* dates, roles, captions */
+  --paper: #f6f7f9;      /* cool off-white page */
+  --rule: #d9dde5;       /* hairlines, timeline track */
+  --teal: #0b6b63;       /* links, primary action */
+  --marigold: #d99a1e;   /* timeline nodes only (never text) */
+}
+
+body {
+  background: var(--paper);
+}
+
+.bio {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 3.5rem 1rem 5rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.bio a {
+  color: var(--teal);
+  text-underline-offset: 3px;
+}
+
+.bio a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Hero ---------- */
+.bio .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16rem;
+  gap: 3rem;
+  align-items: center;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.bio .name {
+  display: block;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.9rem, 7vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.bio .hero-text p {
+  max-width: 36rem;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.bio .hero-links p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.bio .hero-links a {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--teal);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.bio .hero-links a.btn-primary-link {
+  background: var(--teal);
+  color: #fff;
+}
+
+.bio .hero-links a.btn-plain-link:hover {
+  background: var(--teal);
+  color: #fff;
+}
+
+.bio .hero-links a.btn-primary-link:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.bio .hero-photo {
+  text-align: center;
+}
+
+.bio .portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px var(--paper), 0 0 0 7.5px var(--marigold);
+}
+
+.bio .place {
+  display: block;
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ---------- Section labels ---------- */
+.bio .section-label {
+  display: block;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 3rem 0 1.25rem;
+}
+
+/* ---------- Right now ---------- */
+.bio .now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.bio .now-item {
+  border-top: 3px solid var(--teal);
+  padding-top: 0.9rem;
+  font-size: 1rem;
+}
+
+.bio .now-item strong {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* ---------- Timeline (the one bold element) ---------- */
+.bio .timeline {
+  position: relative;
+  margin-left: 11rem;
+  border-left: 2px solid var(--rule);
+}
+
+.bio .entry {
+  position: relative;
+  padding: 0 0 2.25rem 2rem;
+}
+
+.bio .entry:last-child {
+  padding-bottom: 0.25rem;
+}
+
+/* node on the track */
+.bio .entry::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0.45rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--marigold);
+  box-shadow: 0 0 0 4px var(--paper);
+}
+
+/* ongoing roles get a hollow node so "present" reads at a glance */
+.bio .entry.ongoing::before {
+  background: var(--paper);
+  border: 3px solid var(--marigold);
+}
+
+.bio .when {
+  position: absolute;
+  left: -11rem;
+  top: 0.15rem;
+  width: 9.5rem;
+  text-align: right;
+  font-size: 0.92rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.bio .entry > p:first-child {
+  margin: 0;
+}
+
+.bio .org {
+  display: block;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.bio .role {
+  display: block;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 0.4rem;
+}
+
+.bio .what p {
+  max-width: 38rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Lower two columns ---------- */
+.bio .lower {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.bio .lower ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.bio .lower li {
+  margin-bottom: 0.4rem;
+}
+
+.bio .lower li::marker {
+  color: var(--marigold);
+}
+
+.bio .lower p {
+  margin-bottom: 0;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 760px) {
+  .bio {
+    padding-top: 2rem;
+  }
+
+  .bio .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bio .hero-photo {
+    order: -1;
+    max-width: 11rem;
+  }
+
+  .bio .now-grid,
+  .bio .lower {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .bio .timeline {
+    margin-left: 0.5rem;
+  }
+
+  .bio .when {
+    position: static;
+    display: block;
+    width: auto;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio .hero-links a {
+    transition: none;
+  }
+}
