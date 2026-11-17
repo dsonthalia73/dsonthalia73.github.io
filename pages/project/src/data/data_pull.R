@@ -1,7 +1,7 @@
 ################################################################################
 # Script Name: data_pull.R
 # Author: Dhriti Sonthalia
-# GitHub: <your-gh-username>
+# GitHub: dsonthalia73
 # Date Created: 2026-10-05
 #
 # Purpose: Pulls College Scorecard data (2018-19, 2021-22, 2024-25) for

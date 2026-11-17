@@ -1,12 +1,14 @@
 ################################################################################
 # Script Name: data_cleaning.R
 # Author: Dhriti Sonthalia
-# GitHub: <your-gh-username>
+# GitHub: dsonthalia73
 # Date Created: 2026-10-05
 #
 # Purpose: Cleans the raw College Scorecard pull (from data_pull.R) for the
 # test-optional admissions project: labels sector and test policy, adds an
-# academic-year label, and flags institutions present in all three years.
+# academic-year label, flags institutions present in all three years, and adds
+# analysis flags (consistent SAT reporters, policy status, small and
+# special-focus institutions, analysis sample). No rows are dropped.
 # Saves pages/project/data/cleaned/scorecard_cleaned.Rds.
 #
 #                       IMPORTANT
@@ -71,6 +73,54 @@ scorecard_cleaned <- scorecard_cleaned |>
   ) |>
   select(-p18, -p21, -p24) |>
   ungroup()
+
+################################################################################
+# analysis flags
+# No rows are dropped here. Charts should filter on these flags so every plot
+# uses the same institutions:
+#   analysis_sample             -> default sample for all charts
+#   analysis_sample & sat_all_years -> any chart of SAT/ACT scores
+
+min_ugds <- 200  # enrollment floor: below this, rates such as ret_ft4 swing on a handful of students
+
+scorecard_cleaned <-
+  scorecard_cleaned |>
+  group_by(unitid) |>
+  mutate(
+    # 1. Test-blind schools report no scores and optional schools report
+    #    submitters only, so the set of schools behind sat_avg shrinks after
+    #    2018-19. TRUE = sat_avg reported in every year (a fixed set to compare).
+    sat_all_years = sum(!is.na(sat_avg)) == n_years_pulled,
+    # 2. Say why an institution has no policy_group instead of leaving a bare NA.
+    #    "No admissions data" = neither admcon7 nor adm_rate in any year
+    #    (most likely open admission; openadmp was not pulled, so not confirmed).
+    policy_status = case_when(
+      policy_all_years                      ~ "Policy reported all years",
+      all(is.na(admcon7) & is.na(adm_rate)) ~ "No admissions data",
+      TRUE                                  ~ "Policy missing some years"
+    ),
+    # 4. Small or specialised institutions add noise.
+    #    small_inst: under min_ugds undergraduates (or missing) in any year.
+    #    special_focus: Carnegie basic 24-32 (seminaries, art, health, etc.) or
+    #    not classified (-2). ccbasic is the institution's current classification.
+    small_inst    = !all(!is.na(ugds) & ugds >= min_ugds),
+    special_focus = any(ccbasic %in% 24:32 | ccbasic < 0)
+  ) |>
+  ungroup() |>
+  mutate(
+    # 3. "Adopted requirement" has only 2 institutions, too few to chart as a
+    #    group, so it is kept as a label but left out of the analysis sample.
+    #    "Reinstated" is also small: show those schools as named cases, not as
+    #    a group average.
+    analysis_sample = policy_all_years & !small_inst & !special_focus &
+      !(policy_group %in% "Adopted requirement"),
+    # fixed order for legends and facets
+    policy_group = factor(
+      policy_group,
+      levels = c("Always required", "Dropped requirement", "Reinstated",
+                 "Test-free by 2018", "Adopted requirement")
+    )
+  )
 
 ################################################################################
 # save cleaned data as .Rds file with {here} for path management
