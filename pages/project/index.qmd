@@ -1,135 +1,53 @@
 ---
-title: "This is the pages/project/index page title"
+title: "The scores got better because fewer people sent them"
+subtitle: "What test-optional admissions did to the SAT numbers colleges publish"
 ---
 
-This is a Quarto website. This pages/project/index.qmd file could very well contain all of your plots and your entire data story if your goal is present such a story linearly. If so, you can remove teh content needed for the pages/page01.qmd file and adjust your _quarto.yml file to remove the Drop down tab from the navbar (left). If your story is linear, just be careful to arrange your headers, plots, and written content in the order they should appear. 
+Until recently, applying to a four-year college in the United States meant sending an SAT or ACT score. In 2018-19, three out of four colleges in this project required one. When testing centers closed in the spring of 2020, hundreds of colleges suspended the requirement within months, and most never brought it back. By 2024-25, only about one college in twenty still required a score.
 
-## This is a header
+This matters because of a number most colleges still publish: the average SAT score of the students they admit. Rankings, guidebooks and families use it to judge how selective a college is and how strong its students are. When a score is required, that average covers everyone admitted. When it is optional, it covers only the students who chose to send a score, and applicants tend to send scores that help them. A college's published average can rise even if its students have not changed at all.
 
-With content ... 
+This project tracks that shift across more than a thousand colleges. It shows how common testing was before the pandemic, how quickly requirements disappeared, what happened to the averages colleges reported afterward, and whether anything else about those colleges changed enough to explain it.
 
-### And a sub-header 
+## The question
 
-And more content ... 
+When colleges stopped requiring SAT or ACT scores, did the average SAT they publish go up? And does the pattern look like stronger entering classes, or like a smaller and more selective group of students choosing to report their scores?
 
-### And a code block 
+The comparison that answers this is between colleges where sending a score was optional and colleges that kept requiring one. Both groups went through the same pandemic and the same changes in who applied to college. If published averages rose only where sending a score was optional, the most likely reason is who sent scores, not who was admitted.
 
-```{r, loading-libraries-and-functions}
-#| message: false
-#| warning: false
-#| include: false
+## The data
 
-# libraries and functions
-library(here)
-library(ggplot2) 
-library(dplyr) 
-source(here("pages", "project", "src", "functions", "save_plot_as_png.R"))
-```
+The data come from the U.S. Department of Education's [College Scorecard](https://collegescorecard.ed.gov/), pulled with the `rscorecard` R package. I use three academic years: 2018-19, before the pandemic; 2021-22, the first full admissions cycle after it began; and 2024-25, the most recent year available.
 
+The analysis sample is 1,273 public and private nonprofit colleges that grant bachelor's degrees. To be included, a college had to enroll at least 200 undergraduates in every year, could not be a special-focus institution (such as a standalone seminary or art school), and had to report a test policy in all three years. I also dropped the 2 colleges that went the other way and started requiring scores, since they are too few to analyze.
 
-```{r, getting-data}
-#| message: false
-#| warning: false
-#| include: false
+Each college's test policy comes from the Scorecard variable `ADMCON7`, which records whether a college requires test scores, makes them optional, or does not consider them at all. I call the last category "test-blind." From the policy each college reported in the three years, I sort colleges into five groups by when they stopped requiring scores:
 
-# Call script to read/clean/wrangle and write data for later use 
-# if cleaning is not required remove this source() call and ensure
-# that you adjust your {here} path to read in the raw data from 
-# pages/project/data/ (not the cleaned sub-directory)
-#
-# If you are using an API call for accessing your data, your 
-# data_cleaning.R script would involve accessing the data through
-# the api and then saving it locally for reproducibility (see project
-# handout). All data are required to be saved as .Rds files for 
-# preserve space and to maintain data types (which is not true for 
-# .csv files).
+| Group | What it means | Colleges |
+|:--|:--|--:|
+| Already test-free in 2018 | Did not require scores even before the pandemic | 309 |
+| Switched by 2021 | Required scores in 2018-19, not in 2021-22 or 2024-25 | 807 |
+| Switched 2021-2024 | Still required scores in 2021-22, dropped them by 2024-25 | 95 |
+| Still required | Required scores in all three years | 52 |
+| Reinstated | Dropped the requirement by 2021-22, brought it back by 2024-25 | 10 |
 
-source(here("pages", "project", "src", "data", "data_cleaning.R"))
+Not every college publishes an average SAT, and some stop or start publishing from one year to the next. That turns out to matter, so the score charts handle it in steps. One chart shows every college that reported a score in each year. The next shows which colleges dropped out of reporting. The charts after that follow the same colleges over time, so their changes come from colleges changing their numbers, not from colleges entering or leaving the data. These are the 730 colleges that published an average SAT in all three years, or, for the score-range chart, the colleges that published their 25th and 75th percentile scores in both 2018-19 and 2024-25.
 
-# read data/cleaned data (produced from the above cleaning script)
-mtcars <- readRDS(here("pages", "project", "data", "cleaned", "mtcars_cleaned.Rds"))
-```
+Everything here can be reproduced from the raw pull. The cleaning script, `data_cleaning.R`, reads `scorecard_raw.Rds` and writes `scorecard_cleaned.Rds`. Rendering the pages does not call the Scorecard API.
 
+## How to read this project
 
+The story has four parts.
 
-```{r, plot-mpg-by-hp}
-#| echo: false
-#| message: false
-#| warning: false
+1. **Before the pandemic.** How common test requirements were in 2018-19, and what the published averages looked like when most colleges required a score.
+2. **The shift.** How fast requirements disappeared, and which colleges switched when. This is where the five groups above are introduced.
+3. **What it did to scores.** How published averages changed, first across all colleges, then at the same colleges over time, and then by group, comparing colleges where sending a score was optional with colleges that kept requiring one.
+4. **What else changed.** Whether admission rates or the share of low-income students moved in ways that could explain higher scores without any change in who reported them.
 
-# create plot
-# recommendation: always save plots as png so that you have an easily accessible
-# plot file available for other purpose (slide, sharing, etc.); extracting plots
-# from a webpage manually is more difficult 
-# then embed the png into the webpage 
+The project ends with what this evidence can and cannot show.
 
-p <- 
-  mtcars |>
-  ggplot(mapping = aes(
-     x = hp, 
-     y = mpg
-     )) +
-  geom_point()
-```
+Each chart has a headline that states its main finding, followed by a short explanation.
 
+[Go to the charts →](page01.qmd)
 
-```{r, saveplot-mpg}
-#| message: false
-#| warning: false
-#| include: false
-
-# save the plot as a .png file using the save_plot_as_png()
-save_plot_as_png(
-  plot = p,
-  file_name = "mpg-by-hp.png"
-)
-```
-
-## Plot Header
-
-![Caption Text](/pages/project/figs/mpg-by-hp.png){width=80% fig-alt="This is alt-text for describing the plot for screen readers ..."}
-
-
-## Plot Explanation
-
-Blah, blah, blah ...
-
-
-```{r, plot-mpg-by-wt-for-cyl}
-#| echo: false
-#| message: false
-#| warning: false
-
-# create plot for subset
-p <- 
-  mtcars |>
-  # get only 6 cylinder cars
-  filter(cyl %in% 4:6) |>
-  ggplot(mapping = aes(
-    x = wt, 
-    y = mpg
-    )) +
-  geom_point()
-```
-
-<!-- SAVE PLOT AS PNG -->
-
-```{r, saveplot-cyl-subset}
-#| message: false
-#| warning: false
-#| include: false
-
-# save the plot as a .png file using the save_plot_as_png()
-save_plot_as_png(
-  plot = p,
-  file_name = "mpg-by-wt-for-cyl.png"
-)
-```
-
-## Plot Header
-
-![Caption Text](/pages/project/figs/mpg-by-wt-for-cyl.png){width=80% fig-alt="This is alt-text for describing the plot for screen readers ..."}
-
-## Plot Explanation
-
-Blah, blah, blah ...
+Data: U.S. Department of Education, [College Scorecard](https://collegescorecard.ed.gov/), accessed through the `rscorecard` package.
