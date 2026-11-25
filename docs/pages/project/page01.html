@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>This is the pages/project/page01.qmd title</title>
+<title>The scores got better because fewer people sent them</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -91,29 +91,21 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Dhriti Sonthalia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../now.html"> 
-<span class="menu-text">Now</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../files/resume.pdf"> 
 <span class="menu-text">Resume</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/project/index.html"> 
-<span class="menu-text">Project Title</span></a>
-  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-title-wdd" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Project Title w/DD</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-project-title-wdd">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../../pages/project/index.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../pages/project/page01.html">
- <span class="dropdown-text">This is the pages/project/page01.qmd title</span></a>
+ <span class="dropdown-text">The data story</span></a>
   </li>  
     </ul>
   </li>
@@ -151,7 +143,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">This is the pages/project/page01.qmd title</h1>
+<h1 class="title">The scores got better because fewer people sent them</h1>
+<p class="subtitle lead">What test-optional admissions did to the SAT numbers colleges publish</p>
 </div>
 
 
@@ -168,25 +161,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website. This is a file for a decidated page for your website. This file is only needed if you do not build your website as a single page in pages/index.qmd</p>
-<section id="this-is-a-header" class="level2">
-<h2 class="anchored" data-anchor-id="this-is-a-header">This is a header</h2>
-<p>With content …</p>
-<section id="and-a-sub-header" class="level3">
-<h3 class="anchored" data-anchor-id="and-a-sub-header">And a sub-header</h3>
-<p>And more content …</p>
-<p>along with full URL links <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a> or labelled <a href="https://cmc.edu">Claremont McKenna College</a> links.</p>
+<p>Before looking at what happened to scores, it helps to see where colleges started and how fast they moved. The first two charts show the world before the pandemic. The next two show the shift away from testing and sort colleges into the groups that the rest of the project compares.</p>
+<section id="part-1-before-the-pandemic" class="level1">
+<h1>Part 1: Before the pandemic</h1>
+<section id="chart-1-testing-was-the-norm" class="level2">
+<h2 class="anchored" data-anchor-id="chart-1-testing-was-the-norm">Chart 1: Testing was the norm</h2>
+<p><img src="../../pages/project/figs/01-state-map-2018.png" class="img-fluid" style="width:85.0%" alt="Tile map of the United States, one square per state, shaded by the share of colleges requiring SAT or ACT scores in 2018-19. Most states are between 80% and 100%. New England states are much lower: New Hampshire 20%, Vermont 29%, Connecticut 32%, Maine 38%. Alaska, Nevada, Wyoming and Delaware are grey because they have fewer than five colleges in the sample."></p>
+<p>In 2018-19, 76% of the colleges in this project required an SAT or ACT score. Public colleges were the most likely to require one (88%), but most private nonprofit colleges did too (69%). In South Dakota, Utah and West Virginia, every college in the sample required a score, and much of the South and Midwest was above 90%.</p>
+<p>The clear exception was New England. Only 20% of colleges in New Hampshire required a score, along with 29% in Vermont, 32% in Connecticut and 38% in Maine. The region is home to many small private liberal arts colleges, a group that had been moving away from testing for years before the pandemic. Outside New England, only Arizona and Washington, D.C. were below half, and both have fewer than ten colleges in the sample.</p>
+<p>So for most students in most states, sending a score was simply part of applying. That is the baseline the rest of the project measures against.</p>
 </section>
-<section id="and-a-code-block" class="level3">
-<h3 class="anchored" data-anchor-id="and-a-code-block">And a code block</h3>
-<!-- SAVE PLOT AS PNG -->
+<section id="chart-2-what-reported-scores-looked-like-then" class="level2">
+<h2 class="anchored" data-anchor-id="chart-2-what-reported-scores-looked-like-then">Chart 2: What reported scores looked like then</h2>
+<p><img src="../../pages/project/figs/02-sat-beeswarm-2018.png" class="img-fluid" style="width:80.0%" alt="Beeswarm plot with one dot for each of 1,081 colleges, placed by the average SAT score it published in 2018-19. Dots range from about 840 to 1570. A vertical line marks the typical college at 1132, and a shaded band marks the middle half of colleges, from 1068 to 1212. A thinner tail of colleges stretches above 1300."></p>
+<p>Each college reports an average SAT score for the students it admits, with ACT scores converted to the SAT scale. In 2018-19, 1,081 colleges in the sample published one. The typical (median) college reported 1132, and the middle half of colleges fell between 1068 and 1212, a range of less than 150 points. The lowest average was 836 and the highest was 1566. Only a small group of highly selective colleges sits above 1300.</p>
+<p>Because most of these colleges required a score, the averages in this chart mostly describe everyone they admitted. That is what makes 2018-19 a useful reference point. When a score becomes optional, the same number starts to describe only the students who chose to send one.</p>
 </section>
 </section>
-<section id="plot-header" class="level2">
-<h2 class="anchored" data-anchor-id="plot-header">Plot Header</h2>
-<p><img src="../../pages/project/figs/mpg-by-wt-for-cyl.png" class="img-fluid" style="width:80.0%" alt="This is alt-text for describing the plot for screen readers ..."></p>
+<section id="part-2-the-shift" class="level1">
+<h1>Part 2: The shift</h1>
+<section id="chart-3-requirements-collapsed" class="level2">
+<h2 class="anchored" data-anchor-id="chart-3-requirements-collapsed">Chart 3: Requirements collapsed</h2>
+<p><img src="../../pages/project/figs/03-policy-mix.png" class="img-fluid" style="width:80.0%" alt="Stacked bar chart of the share of colleges by test policy in 2018-19, 2021-22 and 2024-25, with Required on the bottom. Required falls from 76% to 12% to 5%. Optional grows from 18% to 74% to 71%, and test-blind from 6% to 15% to 24%."></p>
+<p>The shift was fast. The share of colleges requiring a test score fell from 76% in 2018-19 to 12% in 2021-22, and then to 5% by 2024-25. In three admissions cycles, a requirement that had been the norm became uncommon.</p>
+<p>Most colleges did not stop using scores altogether. They made them optional: 74% of colleges were test-optional in 2021-22 and 71% in 2024-25. The share that does not consider scores at all, shown here as test-blind, grew more slowly, from 6% to 15% to 24%.</p>
+<p>The difference matters for this project. A test-optional college still accepts scores and still reports an average, but only from the applicants who decided to submit. Since test-optional colleges are now the large majority, most published averages now come from a group of students that each applicant chose to join or not.</p>
+</section>
+<section id="chart-4-colleges-switched-at-different-times" class="level2">
+<h2 class="anchored" data-anchor-id="chart-4-colleges-switched-at-different-times">Chart 4: Colleges switched at different times</h2>
+<p><img src="../../pages/project/figs/04-switch-timing.png" class="img-fluid" style="width:80.0%" alt="Horizontal bar chart of the number of colleges by when they stopped requiring test scores. 807 switched by 2021-22, 309 were already test-free in 2018-19, 95 switched between 2021-22 and 2024-25, 52 still require scores, and 10 dropped the requirement and then reinstated it."></p>
+<p>Not every college made the change at the same time, and the timing is what lets us compare them. Of the 1,273 colleges, 807 (63%) dropped their requirement by 2021-22, in the first cycles after the pandemic began. Another 309 (24%) were already test-free before it started. A smaller group of 95 (7%) held on through 2021-22 and dropped the requirement by 2024-25. Just 52 colleges (4%) required scores in all three years, and 10 dropped the requirement and then brought it back.</p>
+<p>The rest of the project compares these groups. The 52 colleges that still require scores matter most, even though they are few. Every admitted student at these colleges still has a score, so their averages show what happened to scores when nothing changed about who reports them. Most of them are public, as are 8 of the 10 colleges that reinstated a requirement. The reinstated group is too small to analyze, so it is set aside in the later comparisons. Some later charts also combine the two switch groups as colleges that “dropped the requirement.”</p>
+<p>If optional testing pushed published averages up, scores should rise wherever sending them was optional and should not rise where it was required.</p>
+<p><a href="../../pages/project/index.html">← Back to the introduction</a></p>
+<p>Data: U.S. Department of Education, <a href="https://collegescorecard.ed.gov/">College Scorecard</a>, accessed through the <code>rscorecard</code> package.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

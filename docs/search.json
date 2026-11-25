@@ -2,23 +2,37 @@
   {
     "objectID": "pages/project/page01.html",
     "href": "pages/project/page01.html",
-    "title": "This is the pages/project/page01.qmd title",
+    "title": "The scores got better because fewer people sent them",
     "section": "",
-    "text": "This is a Quarto website. This is a file for a decidated page for your website. This file is only needed if you do not build your website as a single page in pages/index.qmd"
+    "text": "Before looking at what happened to scores, it helps to see where colleges started and how fast they moved. The first two charts show the world before the pandemic. The next two show the shift away from testing and sort colleges into the groups that the rest of the project compares."
   },
   {
-    "objectID": "pages/project/page01.html#this-is-a-header",
-    "href": "pages/project/page01.html#this-is-a-header",
-    "title": "This is the pages/project/page01.qmd title",
-    "section": "This is a header",
-    "text": "This is a header\nWith content …\n\nAnd a sub-header\nAnd more content …\nalong with full URL links https://quarto.org/docs/websites or labelled Claremont McKenna College links.\n\n\nAnd a code block"
+    "objectID": "pages/project/page01.html#chart-1-testing-was-the-norm",
+    "href": "pages/project/page01.html#chart-1-testing-was-the-norm",
+    "title": "The scores got better because fewer people sent them",
+    "section": "Chart 1: Testing was the norm",
+    "text": "Chart 1: Testing was the norm\n\nIn 2018-19, 76% of the colleges in this project required an SAT or ACT score. Public colleges were the most likely to require one (88%), but most private nonprofit colleges did too (69%). In South Dakota, Utah and West Virginia, every college in the sample required a score, and much of the South and Midwest was above 90%.\nThe clear exception was New England. Only 20% of colleges in New Hampshire required a score, along with 29% in Vermont, 32% in Connecticut and 38% in Maine. The region is home to many small private liberal arts colleges, a group that had been moving away from testing for years before the pandemic. Outside New England, only Arizona and Washington, D.C. were below half, and both have fewer than ten colleges in the sample.\nSo for most students in most states, sending a score was simply part of applying. That is the baseline the rest of the project measures against."
   },
   {
-    "objectID": "pages/project/page01.html#plot-header",
-    "href": "pages/project/page01.html#plot-header",
-    "title": "This is the pages/project/page01.qmd title",
-    "section": "Plot Header",
-    "text": "Plot Header"
+    "objectID": "pages/project/page01.html#chart-2-what-reported-scores-looked-like-then",
+    "href": "pages/project/page01.html#chart-2-what-reported-scores-looked-like-then",
+    "title": "The scores got better because fewer people sent them",
+    "section": "Chart 2: What reported scores looked like then",
+    "text": "Chart 2: What reported scores looked like then\n\nEach college reports an average SAT score for the students it admits, with ACT scores converted to the SAT scale. In 2018-19, 1,081 colleges in the sample published one. The typical (median) college reported 1132, and the middle half of colleges fell between 1068 and 1212, a range of less than 150 points. The lowest average was 836 and the highest was 1566. Only a small group of highly selective colleges sits above 1300.\nBecause most of these colleges required a score, the averages in this chart mostly describe everyone they admitted. That is what makes 2018-19 a useful reference point. When a score becomes optional, the same number starts to describe only the students who chose to send one."
+  },
+  {
+    "objectID": "pages/project/page01.html#chart-3-requirements-collapsed",
+    "href": "pages/project/page01.html#chart-3-requirements-collapsed",
+    "title": "The scores got better because fewer people sent them",
+    "section": "Chart 3: Requirements collapsed",
+    "text": "Chart 3: Requirements collapsed\n\nThe shift was fast. The share of colleges requiring a test score fell from 76% in 2018-19 to 12% in 2021-22, and then to 5% by 2024-25. In three admissions cycles, a requirement that had been the norm became uncommon.\nMost colleges did not stop using scores altogether. They made them optional: 74% of colleges were test-optional in 2021-22 and 71% in 2024-25. The share that does not consider scores at all, shown here as test-blind, grew more slowly, from 6% to 15% to 24%.\nThe difference matters for this project. A test-optional college still accepts scores and still reports an average, but only from the applicants who decided to submit. Since test-optional colleges are now the large majority, most published averages now come from a group of students that each applicant chose to join or not."
+  },
+  {
+    "objectID": "pages/project/page01.html#chart-4-colleges-switched-at-different-times",
+    "href": "pages/project/page01.html#chart-4-colleges-switched-at-different-times",
+    "title": "The scores got better because fewer people sent them",
+    "section": "Chart 4: Colleges switched at different times",
+    "text": "Chart 4: Colleges switched at different times\n\nNot every college made the change at the same time, and the timing is what lets us compare them. Of the 1,273 colleges, 807 (63%) dropped their requirement by 2021-22, in the first cycles after the pandemic began. Another 309 (24%) were already test-free before it started. A smaller group of 95 (7%) held on through 2021-22 and dropped the requirement by 2024-25. Just 52 colleges (4%) required scores in all three years, and 10 dropped the requirement and then brought it back.\nThe rest of the project compares these groups. The 52 colleges that still require scores matter most, even though they are few. Every admitted student at these colleges still has a score, so their averages show what happened to scores when nothing changed about who reports them. Most of them are public, as are 8 of the 10 colleges that reinstated a requirement. The reinstated group is too small to analyze, so it is set aside in the later comparisons. Some later charts also combine the two switch groups as colleges that “dropped the requirement.”\nIf optional testing pushed published averages up, scores should rise wherever sending them was optional and should not rise where it was required.\n← Back to the introduction\nData: U.S. Department of Education, College Scorecard, accessed through the rscorecard package."
   },
   {
     "objectID": "now.html",
@@ -58,43 +72,29 @@
   {
     "objectID": "pages/project/index.html",
     "href": "pages/project/index.html",
-    "title": "This is the pages/project/index page title",
+    "title": "The scores got better because fewer people sent them",
     "section": "",
-    "text": "This is a Quarto website. This pages/project/index.qmd file could very well contain all of your plots and your entire data story if your goal is present such a story linearly. If so, you can remove teh content needed for the pages/page01.qmd file and adjust your _quarto.yml file to remove the Drop down tab from the navbar (left). If your story is linear, just be careful to arrange your headers, plots, and written content in the order they should appear."
+    "text": "Until recently, applying to a four-year college in the United States meant sending an SAT or ACT score. In 2018-19, three out of four colleges in this project required one. When testing centers closed in the spring of 2020, hundreds of colleges suspended the requirement within months, and most never brought it back. By 2024-25, only about one college in twenty still required a score.\nThis matters because of a number most colleges still publish: the average SAT score of the students they admit. Rankings, guidebooks and families use it to judge how selective a college is and how strong its students are. When a score is required, that average covers everyone admitted. When it is optional, it covers only the students who chose to send a score, and applicants tend to send scores that help them. A college’s published average can rise even if its students have not changed at all.\nThis project tracks that shift across more than a thousand colleges. It shows how common testing was before the pandemic, how quickly requirements disappeared, what happened to the averages colleges reported afterward, and whether anything else about those colleges changed enough to explain it."
   },
   {
-    "objectID": "pages/project/index.html#this-is-a-header",
-    "href": "pages/project/index.html#this-is-a-header",
-    "title": "This is the pages/project/index page title",
-    "section": "This is a header",
-    "text": "This is a header\nWith content …\n\nAnd a sub-header\nAnd more content …\n\n\nAnd a code block"
+    "objectID": "pages/project/index.html#the-question",
+    "href": "pages/project/index.html#the-question",
+    "title": "The scores got better because fewer people sent them",
+    "section": "The question",
+    "text": "The question\nWhen colleges stopped requiring SAT or ACT scores, did the average SAT they publish go up? And does the pattern look like stronger entering classes, or like a smaller and more selective group of students choosing to report their scores?\nThe comparison that answers this is between colleges where sending a score was optional and colleges that kept requiring one. Both groups went through the same pandemic and the same changes in who applied to college. If published averages rose only where sending a score was optional, the most likely reason is who sent scores, not who was admitted."
   },
   {
-    "objectID": "pages/project/index.html#plot-header",
-    "href": "pages/project/index.html#plot-header",
-    "title": "This is the pages/project/index page title",
-    "section": "Plot Header",
-    "text": "Plot Header\n\n\n\nCaption Text"
+    "objectID": "pages/project/index.html#the-data",
+    "href": "pages/project/index.html#the-data",
+    "title": "The scores got better because fewer people sent them",
+    "section": "The data",
+    "text": "The data\nThe data come from the U.S. Department of Education’s College Scorecard, pulled with the rscorecard R package. I use three academic years: 2018-19, before the pandemic; 2021-22, the first full admissions cycle after it began; and 2024-25, the most recent year available.\nThe analysis sample is 1,273 public and private nonprofit colleges that grant bachelor’s degrees. To be included, a college had to enroll at least 200 undergraduates in every year, could not be a special-focus institution (such as a standalone seminary or art school), and had to report a test policy in all three years. I also dropped the 2 colleges that went the other way and started requiring scores, since they are too few to analyze.\nEach college’s test policy comes from the Scorecard variable ADMCON7, which records whether a college requires test scores, makes them optional, or does not consider them at all. I call the last category “test-blind.” From the policy each college reported in the three years, I sort colleges into five groups by when they stopped requiring scores:\n\n\n\n\n\n\n\n\nGroup\nWhat it means\nColleges\n\n\n\n\nAlready test-free in 2018\nDid not require scores even before the pandemic\n309\n\n\nSwitched by 2021\nRequired scores in 2018-19, not in 2021-22 or 2024-25\n807\n\n\nSwitched 2021-2024\nStill required scores in 2021-22, dropped them by 2024-25\n95\n\n\nStill required\nRequired scores in all three years\n52\n\n\nReinstated\nDropped the requirement by 2021-22, brought it back by 2024-25\n10\n\n\n\nNot every college publishes an average SAT, and some stop or start publishing from one year to the next. That turns out to matter, so the score charts handle it in steps. One chart shows every college that reported a score in each year. The next shows which colleges dropped out of reporting. The charts after that follow the same colleges over time, so their changes come from colleges changing their numbers, not from colleges entering or leaving the data. These are the 730 colleges that published an average SAT in all three years, or, for the score-range chart, the colleges that published their 25th and 75th percentile scores in both 2018-19 and 2024-25.\nEverything here can be reproduced from the raw pull. The cleaning script, data_cleaning.R, reads scorecard_raw.Rds and writes scorecard_cleaned.Rds. Rendering the pages does not call the Scorecard API."
   },
   {
-    "objectID": "pages/project/index.html#plot-explanation",
-    "href": "pages/project/index.html#plot-explanation",
-    "title": "This is the pages/project/index page title",
-    "section": "Plot Explanation",
-    "text": "Plot Explanation\nBlah, blah, blah …"
-  },
-  {
-    "objectID": "pages/project/index.html#plot-header-1",
-    "href": "pages/project/index.html#plot-header-1",
-    "title": "This is the pages/project/index page title",
-    "section": "Plot Header",
-    "text": "Plot Header\n\n\n\nCaption Text"
-  },
-  {
-    "objectID": "pages/project/index.html#plot-explanation-1",
-    "href": "pages/project/index.html#plot-explanation-1",
-    "title": "This is the pages/project/index page title",
-    "section": "Plot Explanation",
-    "text": "Plot Explanation\nBlah, blah, blah …"
+    "objectID": "pages/project/index.html#how-to-read-this-project",
+    "href": "pages/project/index.html#how-to-read-this-project",
+    "title": "The scores got better because fewer people sent them",
+    "section": "How to read this project",
+    "text": "How to read this project\nThe story has four parts.\n\nBefore the pandemic. How common test requirements were in 2018-19, and what the published averages looked like when most colleges required a score.\nThe shift. How fast requirements disappeared, and which colleges switched when. This is where the five groups above are introduced.\nWhat it did to scores. How published averages changed, first across all colleges, then at the same colleges over time, and then by group, comparing colleges where sending a score was optional with colleges that kept requiring one.\nWhat else changed. Whether admission rates or the share of low-income students moved in ways that could explain higher scores without any change in who reported them.\n\nThe project ends with what this evidence can and cannot show.\nEach chart has a headline that states its main finding, followed by a short explanation.\nGo to the charts →\nData: U.S. Department of Education, College Scorecard, accessed through the rscorecard package."
   }
 ]
